@@ -1,24 +1,17 @@
 package main
 
 import (
+	"bufio"
+	"bytes"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
+	"log"
 	"os"
 )
 
 func main() {
-	jsonFile, err := os.Open("/Users/amoody/Downloads/X12-834-JSON.json")
-
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	byteValue, _ := ioutil.ReadAll(jsonFile)
-
-	var x12 X12n834
-	json.Unmarshal(byteValue, &x12)
-	defer jsonFile.Close()
+	var x12 = GetX12FromStdin()
 
 	fmt.Printf("ISA*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s~\r\n",
 		x12.ISA.De01,
@@ -216,4 +209,42 @@ func main() {
 		// End of Function Group Header
 		fmt.Printf("GE*%s*%s~\r\n", "?", groupControlNumber)
 	}
+
+}
+
+func GetX12FromStdin() X12n834 {
+	reader := bufio.NewReader(os.Stdin)
+	buf := make([]byte, 0, 4*1024)
+
+	var jsonBuffer bytes.Buffer
+
+	for {
+		n, err := reader.Read(buf[:cap(buf)])
+		jsonBuffer.Write(buf[:n])
+
+		if n == 0 {
+
+			if err == nil {
+				continue
+			}
+
+			if err == io.EOF {
+				break
+			}
+
+			log.Fatal(err)
+		}
+
+		if err != nil && err != io.EOF {
+			log.Fatal(err)
+		}
+	}
+
+	var x12 X12n834
+	err := json.Unmarshal(jsonBuffer.Bytes(), &x12)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	return x12
 }
