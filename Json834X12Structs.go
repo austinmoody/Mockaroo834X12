@@ -1,6 +1,6 @@
 package main
 
-type InterchangeControlHeader struct {
+type X12n834 struct {
 	ISA ISA `json:"ISA""`
 }
 

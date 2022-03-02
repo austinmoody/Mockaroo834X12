@@ -16,7 +16,7 @@ func main() {
 
 	byteValue, _ := ioutil.ReadAll(jsonFile)
 
-	var x12 InterchangeControlHeader
+	var x12 X12n834
 	json.Unmarshal(byteValue, &x12)
 	defer jsonFile.Close()
 
