@@ -1,5 +1,17 @@
 package main
 
+import (
+	"fmt"
+	"reflect"
+	"strings"
+)
+
+type X12Delimiters struct {
+	Element    string
+	SubElement string
+	Segment    string
+}
+
 type X12n834 struct {
 	ISA ISA `json:"ISA""`
 }
@@ -65,6 +77,25 @@ type BGN struct {
 	De06 string `json:"06"`
 	De07 string `json:"07"`
 	De08 string `json:"08"`
+}
+
+func (bgn BGN) String(delimiters ...X12Delimiters) string {
+	return GetStructAsString("BGN", reflect.ValueOf(bgn))
+}
+
+func GetStructAsString(segmentName string, structValue reflect.Value) string {
+	var fieldSlice []string
+	fieldSlice = append(fieldSlice, segmentName)
+	for i := 0; i < structValue.NumField(); i++ {
+		value := structValue.Field(i)
+		switch value.Kind() {
+		case reflect.String:
+			fieldSlice = append(fieldSlice, structValue.Field(i).String())
+
+		}
+	}
+
+	return fmt.Sprintf("%s%s", strings.Join(fieldSlice, "*"), "~\r\n")
 }
 
 type REF struct {

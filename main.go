@@ -6,12 +6,25 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"io/ioutil"
 	"log"
 	"os"
 )
 
 func main() {
-	var x12 = GetX12FromStdin()
+	//var x12 = GetX12FromStdin()
+
+	jsonFile, err := os.Open("/Users/amoody/Downloads/X12-834-JSON.json")
+
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	byteValue, _ := ioutil.ReadAll(jsonFile)
+
+	var x12 X12n834
+	json.Unmarshal(byteValue, &x12)
+	defer jsonFile.Close()
 
 	fmt.Printf("ISA*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s~\r\n",
 		x12.ISA.De01,
@@ -32,6 +45,8 @@ func main() {
 		x12.ISA.De16)
 
 	for _, gs := range x12.ISA.Gs {
+		groupControlNumber := gs.De02
+
 		fmt.Printf("GS*%s*%s*%s*%s*%s*%s*%s*%s~\r\n",
 			gs.De01,
 			gs.De02,
@@ -42,20 +57,24 @@ func main() {
 			gs.De07,
 			gs.De08)
 
-		groupControlNumber := gs.De02
-
+		setHeaderCount := len(gs.St)
 		for _, st := range gs.St {
+
 			fmt.Printf("ST*%s*%s*%s~\r\n", st.De01, st.De02, st.De03)
 
-			fmt.Printf("BGN*%s*%s*%s*%s*%s*%s*%s*%s~\r\n",
-				st.Bgn.De01,
-				st.Bgn.De02,
-				st.Bgn.De03,
-				st.Bgn.De04,
-				st.Bgn.De05,
-				st.Bgn.De06,
-				st.Bgn.De07,
-				st.Bgn.De08)
+			/*
+				fmt.Printf("BGN*%s*%s*%s*%s*%s*%s*%s*%s~\r\n",
+					st.Bgn.De01,
+					st.Bgn.De02,
+					st.Bgn.De03,
+					st.Bgn.De04,
+					st.Bgn.De05,
+					st.Bgn.De06,
+					st.Bgn.De07,
+					st.Bgn.De08)
+			*/
+
+			fmt.Printf(st.Bgn.String())
 
 			fmt.Printf("REF*%s*%s~\r\n", st.Ref.De01, st.Ref.De02)
 
@@ -207,8 +226,10 @@ func main() {
 		}
 
 		// End of Function Group Header
-		fmt.Printf("GE*%s*%s~\r\n", "?", groupControlNumber)
+		fmt.Printf("GE*%d*%s~\r\n", setHeaderCount, groupControlNumber)
 	}
+
+	fmt.Printf("IEA*%d*%s~\r\n", len(x12.ISA.Gs), x12.ISA.De13)
 
 }
 
