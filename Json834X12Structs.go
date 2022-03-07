@@ -37,9 +37,10 @@ type ISA struct {
 	Gs   []GS   `json:"GS"`
 }
 
-func (segment ISA) String(x12delimiters ...X12Delimiters) string {
-	delimiters := GetDelimiters(x12delimiters)
-	return GetSegmentAsString(reflect.ValueOf(segment), GetType(segment), delimiters)
+func (segment ISA) String(x12delimiters X12Delimiters, x12options ...map[string]string) string {
+	delimiters := x12delimiters
+	options := GetOptions(x12options)
+	return GetSegmentAsString(reflect.ValueOf(segment), GetType(segment), delimiters, options)
 }
 
 type GS struct {
@@ -54,9 +55,10 @@ type GS struct {
 	St   []ST   `json:"ST"`
 }
 
-func (segment GS) String(x12delimiters ...X12Delimiters) string {
-	delimiters := GetDelimiters(x12delimiters)
-	return GetSegmentAsString(reflect.ValueOf(segment), GetType(segment), delimiters)
+func (segment GS) String(x12delimiters X12Delimiters, x12options ...map[string]string) string {
+	delimiters := x12delimiters
+	options := GetOptions(x12options)
+	return GetSegmentAsString(reflect.ValueOf(segment), GetType(segment), delimiters, options)
 }
 
 type ST struct {
@@ -71,9 +73,10 @@ type ST struct {
 	Ins       []INS     `json:"INS"`
 }
 
-func (segment ST) String(x12delimiters ...X12Delimiters) string {
-	delimiters := GetDelimiters(x12delimiters)
-	return GetSegmentAsString(reflect.ValueOf(segment), GetType(segment), delimiters)
+func (segment ST) String(x12delimiters X12Delimiters, x12options ...map[string]string) string {
+	delimiters := x12delimiters
+	options := GetOptions(x12options)
+	return GetSegmentAsString(reflect.ValueOf(segment), GetType(segment), delimiters, options)
 }
 
 type Loop1000A struct {
@@ -95,9 +98,10 @@ type BGN struct {
 	De08 string `json:"08"`
 }
 
-func (segment BGN) String(x12delimiters ...X12Delimiters) string {
-	delimiters := GetDelimiters(x12delimiters)
-	return GetSegmentAsString(reflect.ValueOf(segment), GetType(segment), delimiters)
+func (segment BGN) String(x12delimiters X12Delimiters, x12options ...map[string]string) string {
+	delimiters := x12delimiters
+	options := GetOptions(x12options)
+	return GetSegmentAsString(reflect.ValueOf(segment), GetType(segment), delimiters, options)
 }
 
 type REF struct {
@@ -105,9 +109,10 @@ type REF struct {
 	De02 string `json:"02"`
 }
 
-func (segment REF) String(x12delimiters ...X12Delimiters) string {
-	delimiters := GetDelimiters(x12delimiters)
-	return GetSegmentAsString(reflect.ValueOf(segment), GetType(segment), delimiters)
+func (segment REF) String(x12delimiters X12Delimiters, x12options ...map[string]string) string {
+	delimiters := x12delimiters
+	options := GetOptions(x12options)
+	return GetSegmentAsString(reflect.ValueOf(segment), GetType(segment), delimiters, options)
 }
 
 type DTP struct {
@@ -116,9 +121,10 @@ type DTP struct {
 	De03 string `json:"03"`
 }
 
-func (segment DTP) String(x12delimiters ...X12Delimiters) string {
-	delimiters := GetDelimiters(x12delimiters)
-	return GetSegmentAsString(reflect.ValueOf(segment), GetType(segment), delimiters)
+func (segment DTP) String(x12delimiters X12Delimiters, x12options ...map[string]string) string {
+	delimiters := x12delimiters
+	options := GetOptions(x12options)
+	return GetSegmentAsString(reflect.ValueOf(segment), GetType(segment), delimiters, options)
 }
 
 type N1 struct {
@@ -128,9 +134,10 @@ type N1 struct {
 	De04 string `json:"04"`
 }
 
-func (segment N1) String(x12delimiters ...X12Delimiters) string {
-	delimiters := GetDelimiters(x12delimiters)
-	return GetSegmentAsString(reflect.ValueOf(segment), GetType(segment), delimiters)
+func (segment N1) String(x12delimiters X12Delimiters, x12options ...map[string]string) string {
+	delimiters := x12delimiters
+	options := GetOptions(x12options)
+	return GetSegmentAsString(reflect.ValueOf(segment), GetType(segment), delimiters, options)
 }
 
 type INS struct {
@@ -154,9 +161,10 @@ type INS struct {
 	Loop2310 []Loop2310 `json:"2310"`
 }
 
-func (segment INS) String(x12delimiters ...X12Delimiters) string {
-	delimiters := GetDelimiters(x12delimiters)
-	return GetSegmentAsString(reflect.ValueOf(segment), GetType(segment), delimiters)
+func (segment INS) String(x12delimiters X12Delimiters, x12options ...map[string]string) string {
+	delimiters := x12delimiters
+	options := GetOptions(x12options)
+	return GetSegmentAsString(reflect.ValueOf(segment), GetType(segment), delimiters, options)
 }
 
 type Loop2100A struct {
@@ -204,9 +212,10 @@ type NM1 struct {
 	De10 string `json:"10"`
 }
 
-func (segment NM1) String(x12delimiters ...X12Delimiters) string {
-	delimiters := GetDelimiters(x12delimiters)
-	return GetSegmentAsString(reflect.ValueOf(segment), GetType(segment), delimiters)
+func (segment NM1) String(x12delimiters X12Delimiters, x12options ...map[string]string) string {
+	delimiters := x12delimiters
+	options := GetOptions(x12options)
+	return GetSegmentAsString(reflect.ValueOf(segment), GetType(segment), delimiters, options)
 }
 
 type PER struct {
@@ -220,9 +229,10 @@ type PER struct {
 	De08 string `json:"08"`
 }
 
-func (segment PER) String(x12delimiters ...X12Delimiters) string {
-	delimiters := GetDelimiters(x12delimiters)
-	return GetSegmentAsString(reflect.ValueOf(segment), GetType(segment), delimiters)
+func (segment PER) String(x12delimiters X12Delimiters, x12options ...map[string]string) string {
+	delimiters := x12delimiters
+	options := GetOptions(x12options)
+	return GetSegmentAsString(reflect.ValueOf(segment), GetType(segment), delimiters, options)
 }
 
 type N3 struct {
@@ -230,9 +240,10 @@ type N3 struct {
 	De02 string `json:"02"`
 }
 
-func (segment N3) String(x12delimiters ...X12Delimiters) string {
-	delimiters := GetDelimiters(x12delimiters)
-	return GetSegmentAsString(reflect.ValueOf(segment), GetType(segment), delimiters)
+func (segment N3) String(x12delimiters X12Delimiters, x12options ...map[string]string) string {
+	delimiters := x12delimiters
+	options := GetOptions(x12options)
+	return GetSegmentAsString(reflect.ValueOf(segment), GetType(segment), delimiters, options)
 }
 
 type N4 struct {
@@ -244,9 +255,10 @@ type N4 struct {
 	De06 string `json:"06"`
 }
 
-func (segment N4) String(x12delimiters ...X12Delimiters) string {
-	delimiters := GetDelimiters(x12delimiters)
-	return GetSegmentAsString(reflect.ValueOf(segment), GetType(segment), delimiters)
+func (segment N4) String(x12delimiters X12Delimiters, x12options ...map[string]string) string {
+	delimiters := x12delimiters
+	options := GetOptions(x12options)
+	return GetSegmentAsString(reflect.ValueOf(segment), GetType(segment), delimiters, options)
 }
 
 type DMG struct {
@@ -257,9 +269,10 @@ type DMG struct {
 	De05 string `json:"05"`
 }
 
-func (segment DMG) String(x12delimiters ...X12Delimiters) string {
-	delimiters := GetDelimiters(x12delimiters)
-	return GetSegmentAsString(reflect.ValueOf(segment), GetType(segment), delimiters)
+func (segment DMG) String(x12delimiters X12Delimiters, x12options ...map[string]string) string {
+	delimiters := x12delimiters
+	options := GetOptions(x12options)
+	return GetSegmentAsString(reflect.ValueOf(segment), GetType(segment), delimiters, options)
 }
 
 type LUI struct {
@@ -269,18 +282,20 @@ type LUI struct {
 	De04 string `json:"04"`
 }
 
-func (segment LUI) String(x12delimiters ...X12Delimiters) string {
-	delimiters := GetDelimiters(x12delimiters)
-	return GetSegmentAsString(reflect.ValueOf(segment), GetType(segment), delimiters)
+func (segment LUI) String(x12delimiters X12Delimiters, x12options ...map[string]string) string {
+	delimiters := x12delimiters
+	options := GetOptions(x12options)
+	return GetSegmentAsString(reflect.ValueOf(segment), GetType(segment), delimiters, options)
 }
 
 type LX struct {
 	De01 string `json:"01"`
 }
 
-func (segment LX) String(x12delimiters ...X12Delimiters) string {
-	delimiters := GetDelimiters(x12delimiters)
-	return GetSegmentAsString(reflect.ValueOf(segment), GetType(segment), delimiters)
+func (segment LX) String(x12delimiters X12Delimiters, x12options ...map[string]string) string {
+	delimiters := x12delimiters
+	options := GetOptions(x12options)
+	return GetSegmentAsString(reflect.ValueOf(segment), GetType(segment), delimiters, options)
 }
 
 type PLA struct {
@@ -291,16 +306,27 @@ type PLA struct {
 	De05 string `json:"05"`
 }
 
-func (segment PLA) String(x12delimiters ...X12Delimiters) string {
-	delimiters := GetDelimiters(x12delimiters)
-	return GetSegmentAsString(reflect.ValueOf(segment), GetType(segment), delimiters)
+func (segment PLA) String(x12delimiters X12Delimiters, x12options ...map[string]string) string {
+	delimiters := x12delimiters
+	options := GetOptions(x12options)
+	return GetSegmentAsString(reflect.ValueOf(segment), GetType(segment), delimiters, options)
 }
 
-func GetSegmentAsString(v reflect.Value, segmentName string, delimiters X12Delimiters) string {
+func GetSegmentAsString(v reflect.Value, segmentName string, delimiters X12Delimiters, options map[string]string) string {
 	// TODO - how to handle sub-element?
 	var fieldSlice []string
+
+	// Set max # of elements to print using MaxElements from options
+	// if passed in.  This is useful for segments like NM1 where
+	// some Loops print different #'s of elements.
+	maxElements := v.NumField()
+	if options["MaxElements"] != "" {
+		maxElements, _ = strconv.Atoi(options["MaxElements"])
+	}
+
+	// Seed slice w/ passed in segment name
 	fieldSlice = append(fieldSlice, segmentName)
-	for i := 0; i < v.NumField(); i++ {
+	for i := 0; i < maxElements; i++ {
 		value := v.Field(i)
 		switch value.Kind() {
 		case reflect.String:
@@ -320,23 +346,22 @@ func GetSegmentAsString(v reflect.Value, segmentName string, delimiters X12Delim
 	return fmt.Sprintf("%s%s", strings.Join(fieldSlice, delimiters.Element), delimiters.Segment)
 }
 
-func GetDelimiters(x12delimiters []X12Delimiters) X12Delimiters {
-	var delimiters X12Delimiters
-	if len(x12delimiters) == 1 {
-		delimiters = x12delimiters[0]
+func GetOptions(x12options []map[string]string) map[string]string {
+	var options map[string]string
+
+	if len(x12options) == 1 {
+		options = x12options[0]
 	} else {
-		delimiters.Element = "*"
-		delimiters.SubElement = "/"
-		delimiters.Segment = "~"
+		options = map[string]string{}
 	}
 
-	return delimiters
+	return options
 }
 
 func GetType(object interface{}) string {
 	t := reflect.TypeOf(object)
 	if t != nil && t.Kind() == reflect.Ptr {
-		return "lol-" + t.Elem().Name()
+		return t.Elem().Name()
 	} else {
 		return t.Name()
 	}

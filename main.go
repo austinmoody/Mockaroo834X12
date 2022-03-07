@@ -6,7 +6,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"log"
 	"os"
 )
@@ -18,20 +17,31 @@ func main() {
 	delimiters.Element = "*"
 	delimiters.SubElement = "/"
 
-	//var x12 = GetX12FromStdin()
+	var x12 = GetX12FromStdin()
 
-	jsonFile, err := os.Open("/Users/amoody/Downloads/X12-834-JSON.json")
+	/*
+		var err error
+		jsonFile, err := os.Open("/Users/amoody/Downloads/X12-834-JSON.json")
 
-	if err != nil {
-		fmt.Println(err)
-	}
+		if err != nil {
+			fmt.Println(err)
+		}
 
-	byteValue, _ := ioutil.ReadAll(jsonFile)
+		byteValue, _ := ioutil.ReadAll(jsonFile)
 
-	var x12 X12n834
-	json.Unmarshal(byteValue, &x12)
-	defer jsonFile.Close()
+		var x12 X12n834
+		err = json.Unmarshal(byteValue, &x12)
+		if err != nil {
+			log.Fatal("Error unmarshalling JSON: " + err.Error())
+		}
 
+		defer func(jsonFile *os.File) {
+			err = jsonFile.Close()
+			if err != nil {
+				log.Fatal("Error closing file: " + err.Error())
+			}
+		}(jsonFile)
+	*/
 	fmt.Print(x12.ISA.String(delimiters))
 
 	for _, gs := range x12.ISA.Gs {
