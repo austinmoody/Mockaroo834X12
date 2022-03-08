@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"bytes"
 	"encoding/json"
+	"flag"
 	"fmt"
 	"io"
 	"io/ioutil"
@@ -11,14 +12,28 @@ import (
 	"os"
 )
 
+var (
+	elementDelimiter    = flag.String("element", "*", "Element Delimiter")
+	subElementDelimiter = flag.String("subelement", "/", "Sub-Element Delimiter")
+	segmentDelimiter    = flag.String("segment", "~\r\n", "Segment Delimiter")
+	inputFile           = flag.String("input", "", "Input File")
+)
+
 func main() {
 
-	delimiters := X12Delimiters{}
-	delimiters.Segment = "~\r\n"
-	delimiters.Element = "*"
-	delimiters.SubElement = "/"
+	flag.Parse()
 
-	var x12 = GetX12FromStdin()
+	delimiters := X12Delimiters{}
+	delimiters.Segment = *segmentDelimiter
+	delimiters.Element = *elementDelimiter
+	delimiters.SubElement = *subElementDelimiter
+
+	var x12 X12n834
+	if *inputFile == "" {
+		x12 = GetX12FromStdin()
+	} else {
+		x12 = GetX12FromFile(*inputFile)
+	}
 
 	fmt.Print(x12.ISA.String(delimiters))
 
@@ -101,7 +116,7 @@ func GetX12FromFile(fileName string) X12n834 {
 	jsonFile, err := os.Open(fileName)
 
 	if err != nil {
-		fmt.Println(err)
+		log.Fatal(err.Error())
 	}
 
 	byteValue, _ := ioutil.ReadAll(jsonFile)
