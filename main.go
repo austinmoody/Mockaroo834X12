@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"io/ioutil"
 	"log"
 	"os"
 )
@@ -19,29 +20,6 @@ func main() {
 
 	var x12 = GetX12FromStdin()
 
-	/*
-		var err error
-		jsonFile, err := os.Open("/Users/amoody/Downloads/X12-834-JSON.json")
-
-		if err != nil {
-			fmt.Println(err)
-		}
-
-		byteValue, _ := ioutil.ReadAll(jsonFile)
-
-		var x12 X12n834
-		err = json.Unmarshal(byteValue, &x12)
-		if err != nil {
-			log.Fatal("Error unmarshalling JSON: " + err.Error())
-		}
-
-		defer func(jsonFile *os.File) {
-			err = jsonFile.Close()
-			if err != nil {
-				log.Fatal("Error closing file: " + err.Error())
-			}
-		}(jsonFile)
-	*/
 	fmt.Print(x12.ISA.String(delimiters))
 
 	for _, gs := range x12.ISA.Gs {
@@ -116,6 +94,32 @@ func main() {
 
 	fmt.Printf("IEA*%d*%s~\r\n", len(x12.ISA.Gs), x12.ISA.De13)
 
+}
+
+func GetX12FromFile(fileName string) X12n834 {
+	var err error
+	jsonFile, err := os.Open(fileName)
+
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	byteValue, _ := ioutil.ReadAll(jsonFile)
+
+	var x12 X12n834
+	err = json.Unmarshal(byteValue, &x12)
+	if err != nil {
+		log.Fatal("Error unmarshalling JSON: " + err.Error())
+	}
+
+	defer func(jsonFile *os.File) {
+		err = jsonFile.Close()
+		if err != nil {
+			log.Fatal("Error closing file: " + err.Error())
+		}
+	}(jsonFile)
+
+	return x12
 }
 
 func GetX12FromStdin() X12n834 {
