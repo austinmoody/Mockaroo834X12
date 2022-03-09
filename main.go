@@ -101,6 +101,9 @@ func main() {
 					fmt.Print(l2310.PLA.String(delimiters))
 				}
 			}
+
+			// TODO - figure out a way to count segments in Transaction Set
+			fmt.Printf("SE*%d*%s~\r\n", 0, st.De02)
 		}
 
 		// End of Function Group Header

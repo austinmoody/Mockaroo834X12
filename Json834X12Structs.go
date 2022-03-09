@@ -313,6 +313,7 @@ func (segment PLA) String(x12delimiters X12Delimiters, x12options ...map[string]
 }
 
 func GetSegmentAsString(v reflect.Value, segmentName string, delimiters X12Delimiters, options map[string]string) string {
+
 	// TODO - how to handle sub-element?
 	var fieldSlice []string
 
