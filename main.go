@@ -65,7 +65,7 @@ func main() {
 				}
 
 				// Loop2100A
-				fmt.Print(ins.Loop2100A.NM1.String(delimiters))
+				fmt.Print(ins.Loop2100A.NM1.String(delimiters, map[string]string{"MaxElements": "7"}))
 				fmt.Print(ins.Loop2100A.PER.String(delimiters))
 				fmt.Print(ins.Loop2100A.N3.String(delimiters))
 				fmt.Print(ins.Loop2100A.N4.String(delimiters))
@@ -73,18 +73,18 @@ func main() {
 				fmt.Print(ins.Loop2100A.LUI.String(delimiters))
 
 				// Loop2100C
-				fmt.Print(ins.Loop2100C.NM1.String(delimiters))
+				fmt.Print(ins.Loop2100C.NM1.String(delimiters, map[string]string{"MaxElements": "2"}))
 				fmt.Print(ins.Loop2100C.N3.String(delimiters))
-				fmt.Print(ins.Loop2100C.N4.String(delimiters))
+				fmt.Print(ins.Loop2100C.N4.String(delimiters, map[string]string{"MaxElements": "3"}))
 
 				// Loop2100F
 				if ins.Loop2100F.NM1.De01 != "" {
-					fmt.Print(ins.Loop2100F.NM1.String(delimiters))
+					fmt.Print(ins.Loop2100F.NM1.String(delimiters, map[string]string{"MaxElements": "7"}))
 				}
 
 				// Loop2100G
 				if ins.Loop2100G.NM1.De01 != "" {
-					fmt.Print(ins.Loop2100G.NM1.String(delimiters))
+					fmt.Print(ins.Loop2100G.NM1.String(delimiters, map[string]string{"MaxElements": "7"}))
 
 					if ins.Loop2100G.PER.De01 != "" {
 						fmt.Print(ins.Loop2100G.PER.String(delimiters))
@@ -96,8 +96,8 @@ func main() {
 				for _, l2310 := range ins.Loop2310 {
 					fmt.Print(l2310.LX.String(delimiters))
 					fmt.Print(l2310.NM1.String(delimiters))
-					fmt.Print(l2310.N3.String(delimiters))
-					fmt.Print(l2310.N4.String(delimiters))
+					fmt.Print(l2310.N3.String(delimiters, map[string]string{"MaxElements": "1"}))
+					fmt.Print(l2310.N4.String(delimiters, map[string]string{"MaxElements": "3"}))
 					fmt.Print(l2310.PLA.String(delimiters))
 				}
 			}
