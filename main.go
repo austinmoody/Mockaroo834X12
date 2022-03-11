@@ -43,51 +43,78 @@ func main() {
 		fmt.Print(gs.String(delimiters))
 
 		setHeaderCount := len(gs.St)
+		transactionSetSegmentCount := 0
 		for _, st := range gs.St {
 
 			fmt.Print(st.String(delimiters))
+			transactionSetSegmentCount++
+
 			fmt.Print(st.Bgn.String(delimiters))
+			transactionSetSegmentCount++
+
 			fmt.Print(st.Ref.String(delimiters))
+			transactionSetSegmentCount++
+
 			fmt.Print(st.Dtp.String(delimiters))
-			fmt.Print(st.Loop1000A.N1.String(delimiters))
-			fmt.Print(st.Loop1000B.N1.String(delimiters))
+			transactionSetSegmentCount++
+
+			fmt.Print(st.Loop1000A.String(delimiters))
+			transactionSetSegmentCount++
+
+			fmt.Print(st.Loop1000B.String(delimiters))
+			transactionSetSegmentCount++
 
 			for _, ins := range st.Ins {
 
 				fmt.Print(ins.String(delimiters))
+				transactionSetSegmentCount++
 
 				for _, ref := range ins.Ref {
 					fmt.Print(ref.String(delimiters))
+					transactionSetSegmentCount++
 				}
 
 				for _, dtp := range ins.Dtp {
 					fmt.Print(dtp.String(delimiters))
+					transactionSetSegmentCount++
 				}
 
 				// Loop2100A
 				fmt.Print(ins.Loop2100A.NM1.String(delimiters, map[string]string{"MaxElements": "7"}))
+				transactionSetSegmentCount++
 				fmt.Print(ins.Loop2100A.PER.String(delimiters))
+				transactionSetSegmentCount++
 				fmt.Print(ins.Loop2100A.N3.String(delimiters))
+				transactionSetSegmentCount++
 				fmt.Print(ins.Loop2100A.N4.String(delimiters))
+				transactionSetSegmentCount++
 				fmt.Print(ins.Loop2100A.DMG.String(delimiters))
+				transactionSetSegmentCount++
 				fmt.Print(ins.Loop2100A.LUI.String(delimiters))
+				transactionSetSegmentCount++
 
 				// Loop2100C
 				fmt.Print(ins.Loop2100C.NM1.String(delimiters, map[string]string{"MaxElements": "2"}))
+				transactionSetSegmentCount++
 				fmt.Print(ins.Loop2100C.N3.String(delimiters))
+				transactionSetSegmentCount++
 				fmt.Print(ins.Loop2100C.N4.String(delimiters, map[string]string{"MaxElements": "3"}))
+				transactionSetSegmentCount++
 
 				// Loop2100F
 				if ins.Loop2100F.NM1.De01 != "" {
 					fmt.Print(ins.Loop2100F.NM1.String(delimiters, map[string]string{"MaxElements": "7"}))
+					transactionSetSegmentCount++
 				}
 
 				// Loop2100G
 				if ins.Loop2100G.NM1.De01 != "" {
 					fmt.Print(ins.Loop2100G.NM1.String(delimiters, map[string]string{"MaxElements": "7"}))
+					transactionSetSegmentCount++
 
 					if ins.Loop2100G.PER.De01 != "" {
 						fmt.Print(ins.Loop2100G.PER.String(delimiters))
+						transactionSetSegmentCount++
 					}
 				}
 
@@ -95,15 +122,21 @@ func main() {
 
 				for _, l2310 := range ins.Loop2310 {
 					fmt.Print(l2310.LX.String(delimiters))
+					transactionSetSegmentCount++
 					fmt.Print(l2310.NM1.String(delimiters))
+					transactionSetSegmentCount++
 					fmt.Print(l2310.N3.String(delimiters, map[string]string{"MaxElements": "1"}))
+					transactionSetSegmentCount++
 					fmt.Print(l2310.N4.String(delimiters, map[string]string{"MaxElements": "3"}))
+					transactionSetSegmentCount++
 					fmt.Print(l2310.PLA.String(delimiters))
+					transactionSetSegmentCount++
 				}
 			}
 
-			// TODO - figure out a way to count segments in Transaction Set
-			fmt.Printf("SE*%d*%s~\r\n", 0, st.De02)
+			// TODO - I hate this copy/paste of transactionSetSegmentCount++ has to be a better way.
+			//transactionSetSegmentCount++
+			fmt.Printf("SE*%d*%s~\r\n", transactionSetSegmentCount, st.De02)
 		}
 
 		// End of Function Group Header
