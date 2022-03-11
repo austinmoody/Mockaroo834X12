@@ -1,0 +1,1196 @@
+{
+  "num_rows": 1,
+  "file_format": "json",
+  "name": "X12-834-JSON",
+  "array": false,
+  "columns": [
+    {
+      "name": "ISA.01",
+      "null_percentage": 0,
+      "type": "Custom List",
+      "values": [
+        "00"
+      ],
+      "selectionStyle": "random",
+      "distribution": null,
+      "formula": null
+    },
+    {
+      "name": "ISA.02",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "          ",
+      "formula": null
+    },
+    {
+      "name": "ISA.03",
+      "null_percentage": 0,
+      "type": "Custom List",
+      "values": [
+        "00"
+      ],
+      "selectionStyle": "random",
+      "distribution": null,
+      "formula": null
+    },
+    {
+      "name": "ISA.04",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "          ",
+      "formula": null
+    },
+    {
+      "name": "ISA.05",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "ZZ",
+      "formula": null
+    },
+    {
+      "name": "ISA.06",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "          TXEBS",
+      "formula": null
+    },
+    {
+      "name": "ISA.07",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "ZZ",
+      "formula": null
+    },
+    {
+      "name": "ISA.08",
+      "null_percentage": 0,
+      "type": "Regular Expression",
+      "value": "             [:upper:][:upper:]",
+      "formula": null
+    },
+    {
+      "name": "ISA.09",
+      "null_percentage": 0,
+      "type": "Formula",
+      "value": "concat(Time.now.strftime(\"%y\"),Time.now.strftime(\"%m\"),Time.now.strftime(\"%d\"))",
+      "formula": null
+    },
+    {
+      "name": "ISA.10",
+      "null_percentage": 0,
+      "type": "Formula",
+      "value": "concat(Time.now.strftime(\"%H\"),Time.now.strftime(\"%M\"))",
+      "formula": null
+    },
+    {
+      "name": "ISA.11",
+      "null_percentage": 0,
+      "type": "Custom List",
+      "values": [
+        "^"
+      ],
+      "selectionStyle": "random",
+      "distribution": null,
+      "formula": null
+    },
+    {
+      "name": "ISA.12",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "00501",
+      "formula": null
+    },
+    {
+      "name": "ISA.13",
+      "null_percentage": 0,
+      "type": "Regular Expression",
+      "value": "0000\\d\\d\\d\\d\\d",
+      "formula": null
+    },
+    {
+      "name": "ISA.14",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "0",
+      "formula": null
+    },
+    {
+      "name": "ISA.15",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "T",
+      "formula": null
+    },
+    {
+      "name": "ISA.16",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "/",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS",
+      "null_percentage": 0,
+      "type": "JSON Array",
+      "minItems": 1,
+      "maxItems": 2,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.01",
+      "null_percentage": 0,
+      "type": "Custom List",
+      "values": [
+        "BE"
+      ],
+      "selectionStyle": "random",
+      "distribution": null,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.02",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "TXEBS",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.03",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "^^",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.04",
+      "null_percentage": 0,
+      "type": "Formula",
+      "value": "concat(Time.now.strftime(\"%Y\"),Time.now.strftime(\"%m\"),Time.now.strftime(\"%d\"))",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.05",
+      "null_percentage": 0,
+      "type": "Formula",
+      "value": "concat(Time.now.strftime(\"%H\"),Time.now.strftime(\"%M\"))",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.06",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "00####",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.07",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "X",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.08",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "005010X220A1",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST",
+      "null_percentage": 0,
+      "type": "JSON Array",
+      "minItems": 1,
+      "maxItems": 5,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.01",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "834",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.02",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "######",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.03",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "005010X220A1",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.BGN.01",
+      "null_percentage": 0,
+      "type": "Custom List",
+      "values": [
+        "00",
+        "15",
+        "22"
+      ],
+      "selectionStyle": "random",
+      "distribution": null,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.BGN.02",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "A1M##-##-##",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.BGN.03",
+      "null_percentage": 0,
+      "type": "Formula",
+      "value": "concat(Time.now.strftime(\"%Y\"),Time.now.strftime(\"%m\"),Time.now.strftime(\"%d\"))",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.BGN.04",
+      "null_percentage": 0,
+      "type": "Formula",
+      "value": "concat(Time.now.strftime(\"%H\"),Time.now.strftime(\"%M\"))",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.BGN.05",
+      "null_percentage": 0,
+      "type": "Blank",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.BGN.06",
+      "null_percentage": 0,
+      "type": "Blank",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.BGN.07",
+      "null_percentage": 0,
+      "type": "Blank",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.BGN.08",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "2",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.REF.01",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "38",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.REF.02",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "^^-#####",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.DTP.01",
+      "null_percentage": 0,
+      "type": "Custom List",
+      "values": [
+        "007"
+      ],
+      "selectionStyle": "random",
+      "distribution": null,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.DTP.02",
+      "null_percentage": 0,
+      "type": "Custom List",
+      "values": [
+        "D8"
+      ],
+      "selectionStyle": "random",
+      "distribution": null,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.DTP.03",
+      "null_percentage": 0,
+      "type": "Datetime",
+      "min": "02/24/2021",
+      "max": "02/24/2022",
+      "format": "%Y/%m/%d",
+      "formula": "concat(year(this),month(this,true),day(this,true))"
+    },
+    {
+      "name": "ISA.GS.ST.1000A.01",
+      "null_percentage": 0,
+      "type": "Custom List",
+      "values": [
+        "P5"
+      ],
+      "selectionStyle": "sequential",
+      "distribution": null,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.1000A.02",
+      "null_percentage": 0,
+      "type": "Custom List",
+      "values": [
+        "HHSC",
+        "Fake Payer"
+      ],
+      "selectionStyle": "sequential",
+      "distribution": null,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.1000A.03",
+      "null_percentage": 0,
+      "type": "Custom List",
+      "values": [
+        "FI"
+      ],
+      "selectionStyle": "random",
+      "distribution": null,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.1000A.04",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "#########",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.1000B.01",
+      "null_percentage": 0,
+      "type": "Custom List",
+      "values": [
+        "IN"
+      ],
+      "selectionStyle": "random",
+      "distribution": null,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.1000B.02",
+      "null_percentage": 0,
+      "type": "Custom List",
+      "values": [
+        "Fake Payer",
+        "Fake ACO",
+        "Fake MCO"
+      ],
+      "selectionStyle": "random",
+      "distribution": null,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.1000B.03",
+      "null_percentage": 0,
+      "type": "Custom List",
+      "values": [
+        "FI"
+      ],
+      "selectionStyle": "random",
+      "distribution": null,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.1000B.04",
+      "null_percentage": 0,
+      "type": "Digit Sequence",
+      "format": "#########",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS",
+      "null_percentage": 0,
+      "type": "JSON Array",
+      "minItems": 2,
+      "maxItems": 10,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.01",
+      "null_percentage": 0,
+      "type": "Custom List",
+      "values": [
+        "Y"
+      ],
+      "selectionStyle": "random",
+      "distribution": null,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.02",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "18",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.03",
+      "null_percentage": 0,
+      "type": "Custom List",
+      "values": [
+        "001",
+        "021",
+        "024"
+      ],
+      "selectionStyle": "random",
+      "distribution": null,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.04",
+      "null_percentage": 0,
+      "type": "Regular Expression",
+      "value": "(EC|AL|AI|41|03|07|14|15)",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.05",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "A",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.06",
+      "null_percentage": 0,
+      "type": "Regular Expression",
+      "value": "(A|D)",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.07",
+      "null_percentage": 0,
+      "type": "Blank",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.08",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "AC",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.09",
+      "null_percentage": 0,
+      "type": "Blank",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.10",
+      "null_percentage": 0,
+      "type": "Regular Expression",
+      "value": "(N|Y)",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.REF",
+      "null_percentage": 0,
+      "type": "JSON Array",
+      "minItems": 7,
+      "maxItems": 7,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.REF.01",
+      "null_percentage": 0,
+      "type": "Custom List",
+      "values": [
+        "0F",
+        "1L",
+        "23",
+        "F6",
+        "Q4",
+        "ZZ",
+        "6O"
+      ],
+      "selectionStyle": "sequential",
+      "distribution": null,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.REF.02",
+      "null_percentage": 0,
+      "type": "SSN",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.DTP",
+      "null_percentage": 0,
+      "type": "JSON Array",
+      "minItems": 1,
+      "maxItems": 10,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.DTP.01",
+      "null_percentage": 0,
+      "type": "Custom List",
+      "values": [
+        "336",
+        "337",
+        "338",
+        "339",
+        "473",
+        "474",
+        "473",
+        "050",
+        "385",
+        "386"
+      ],
+      "selectionStyle": "sequential",
+      "distribution": null,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.DTP.02",
+      "null_percentage": 0,
+      "type": "Custom List",
+      "values": [
+        "D8"
+      ],
+      "selectionStyle": "random",
+      "distribution": null,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.DTP.03",
+      "null_percentage": 0,
+      "type": "Datetime",
+      "min": "02/24/2021",
+      "max": "02/24/2022",
+      "format": "%Y-%m-%d",
+      "formula": "concat(year(this),month(this,true),day(this,true))"
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100A.NM1.01",
+      "null_percentage": 0,
+      "type": "Custom List",
+      "values": [
+        "IL"
+      ],
+      "selectionStyle": "random",
+      "distribution": null,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100A.NM1.02",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "1",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100A.NM1.03",
+      "null_percentage": 0,
+      "type": "Last Name",
+      "formula": "concat(upper(this),\"ZZFAKE\")"
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100A.NM1.04",
+      "null_percentage": 0,
+      "type": "First Name",
+      "formula": "concat(\"ZZFAKE\",upper(this))"
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100A.NM1.05",
+      "null_percentage": 20,
+      "type": "Character Sequence",
+      "format": "^",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100A.NM1.06",
+      "null_percentage": 80,
+      "type": "Custom List",
+      "values": [
+        "MR",
+        "MRS",
+        "MS",
+        "DR"
+      ],
+      "selectionStyle": "random",
+      "distribution": null,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100A.NM1.07",
+      "null_percentage": 90,
+      "type": "Suffix",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100A.PER.01",
+      "null_percentage": 0,
+      "type": "Custom List",
+      "values": [
+        "IP"
+      ],
+      "selectionStyle": "random",
+      "distribution": null,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100A.PER.02",
+      "null_percentage": 0,
+      "type": "Blank",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100A.PER.03",
+      "null_percentage": 0,
+      "type": "Custom List",
+      "values": [
+        "CP",
+        "HP",
+        "WP",
+        "EM"
+      ],
+      "selectionStyle": "random",
+      "distribution": null,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100A.PER.04",
+      "null_percentage": 0,
+      "type": "Formula",
+      "value": "if field(\"2100A.PER.03\") == \"EM\" then /\\w{3}\\w{3,5}(\\w|\\d){1,4}@(gmail.com|yahoo.com|ainq.com)/.gen else /\\d{12}/.gen end",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100A.PER.05",
+      "null_percentage": 0,
+      "type": "Custom List",
+      "values": [
+        "CP",
+        "HP",
+        "WP",
+        "EM"
+      ],
+      "selectionStyle": "random",
+      "distribution": null,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100A.PER.06",
+      "null_percentage": 0,
+      "type": "Formula",
+      "value": "if field(\"2100A.PER.05\") == \"EM\" then /\\w{3}\\w{3,5}(\\w|\\d){1,4}@(gmail.com|yahoo.com|ainq.com)/.gen else /\\d{12}/.gen end",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100A.PER.07",
+      "null_percentage": 0,
+      "type": "Custom List",
+      "values": [
+        "CP",
+        "HP",
+        "WP",
+        "EM"
+      ],
+      "selectionStyle": "random",
+      "distribution": null,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100A.PER.08",
+      "null_percentage": 0,
+      "type": "Formula",
+      "value": "if field(\"2100A.PER.07\") == \"EM\" then /\\w{3}\\w{3,5}(\\w|\\d){1,4}@(gmail.com|yahoo.com|ainq.com)/.gen else /\\d{12}/.gen end",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100A.N3.01",
+      "null_percentage": 0,
+      "type": "Street Address",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100A.N3.02",
+      "null_percentage": 85,
+      "type": "Regular Expression",
+      "value": "(APT|SUITE|NUMBER) \\d4",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100A.N4.01",
+      "null_percentage": 0,
+      "type": "City",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100A.N4.02",
+      "null_percentage": 0,
+      "type": "State (abbrev)",
+      "onlyUSPlaces": false,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100A.N4.03",
+      "null_percentage": 0,
+      "type": "Postal Code",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100A.N4.04",
+      "null_percentage": 0,
+      "type": "Country Code",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100A.N4.05",
+      "null_percentage": 0,
+      "type": "Custom List",
+      "values": [
+        "CY"
+      ],
+      "selectionStyle": "random",
+      "distribution": null,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100A.N4.06",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "###",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100A.DMG.01",
+      "null_percentage": 0,
+      "type": "Custom List",
+      "values": [
+        "D8"
+      ],
+      "selectionStyle": "random",
+      "distribution": null,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100A.DMG.02",
+      "null_percentage": 0,
+      "type": "Datetime",
+      "min": "02/24/2021",
+      "max": "02/24/2022",
+      "format": "%Y-%m-%d",
+      "formula": "concat(year(this),month(this,true),day(this,true))"
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100A.DMG.03",
+      "null_percentage": 0,
+      "type": "Gender (abbrev)",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100A.DMG.04",
+      "null_percentage": 0,
+      "type": "Blank",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100A.DMG.05",
+      "null_percentage": 0,
+      "type": "Custom List",
+      "values": [
+        "7",
+        "A",
+        "H",
+        "I",
+        "N",
+        "O"
+      ],
+      "selectionStyle": "random",
+      "distribution": null,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100A.LUI.01",
+      "null_percentage": 0,
+      "type": "Custom List",
+      "values": [
+        "LE"
+      ],
+      "selectionStyle": "random",
+      "distribution": null,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100A.LUI.02",
+      "null_percentage": 0,
+      "type": "Custom List",
+      "values": [
+        "eng",
+        "fre",
+        "spa"
+      ],
+      "selectionStyle": "random",
+      "distribution": null,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100A.LUI.03",
+      "null_percentage": 0,
+      "type": "Blank",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100A.LUI.04",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "7",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100C.NM1.01",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "31",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100C.NM1.02",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "1",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100C.N3.01",
+      "null_percentage": 0,
+      "type": "Street Address",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100C.N3.02",
+      "null_percentage": 0,
+      "type": "Regular Expression",
+      "value": "(APT|SUITE|NUMBER) \\d4",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100C.N4.01",
+      "null_percentage": 0,
+      "type": "City",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100C.N4.02",
+      "null_percentage": 0,
+      "type": "State (abbrev)",
+      "onlyUSPlaces": false,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100C.N4.03",
+      "null_percentage": 0,
+      "type": "Postal Code",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100F.NM1.01",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "S3",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100F.NM1.02",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "1",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100F.NM1.03",
+      "null_percentage": 0,
+      "type": "Last Name",
+      "formula": "concat(this,\"ZZFAKE\")"
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100F.NM1.04",
+      "null_percentage": 0,
+      "type": "First Name",
+      "formula": "concat(\"ZZFAKE\",this)"
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100F.NM1.05",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "^",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100F.NM1.06",
+      "null_percentage": 80,
+      "type": "Custom List",
+      "values": [
+        "MR",
+        "MRS",
+        "MS",
+        "DR"
+      ],
+      "selectionStyle": "random",
+      "distribution": null,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100F.NM1.07",
+      "null_percentage": 90,
+      "type": "Suffix",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100G.NM1.01",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "QD",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100G.NM1.02",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "1",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100G.NM1.03",
+      "null_percentage": 0,
+      "type": "Last Name",
+      "formula": "concat(this,\"ZZFAKE\")"
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100G.NM1.04",
+      "null_percentage": 0,
+      "type": "First Name",
+      "formula": "concat(\"ZZFAKE\",this)"
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100G.NM1.05",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "^",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100G.NM1.06",
+      "null_percentage": 80,
+      "type": "Custom List",
+      "values": [
+        "MR",
+        "MRS",
+        "MS",
+        "DR"
+      ],
+      "selectionStyle": "random",
+      "distribution": null,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100G.NM1.07",
+      "null_percentage": 90,
+      "type": "Suffix",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100G.NM1.08",
+      "null_percentage": 90,
+      "type": "Character Sequence",
+      "format": "ZZ",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2100G.NM1.09",
+      "null_percentage": 90,
+      "type": "Character Sequence",
+      "format": "MC#######",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2310",
+      "null_percentage": 0,
+      "type": "JSON Array",
+      "minItems": 1,
+      "maxItems": 2,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2310.LX.01",
+      "null_percentage": 0,
+      "type": "Row Number",
+      "formula": "this.to_s"
+    },
+    {
+      "name": "ISA.GS.ST.INS.2310.NM1.01",
+      "null_percentage": 0,
+      "type": "Custom List",
+      "values": [
+        "P3"
+      ],
+      "selectionStyle": "random",
+      "distribution": null,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2310.NM1.02",
+      "null_percentage": 0,
+      "type": "Regular Expression",
+      "value": "(1|2)",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2310.NM1.03",
+      "null_percentage": 0,
+      "type": "Formula",
+      "value": "if field(\"NM1.02\") == \"2\" then upper(/\\w+ (clinic|practice|healthcare)/.gen) else concat(upper(/[:last_name:]/.gen),\"ZZFAKE\") end",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2310.NM1.04",
+      "null_percentage": 0,
+      "type": "Formula",
+      "value": "if field(\"NM1.02\") == \"1\" then concat(\"ZZFAKE\",upper(/[:first_name:]/.gen)) end",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2310.NM1.05",
+      "null_percentage": 0,
+      "type": "Formula",
+      "value": "if field(\"NM1.02\") == \"1\" then upper(/\\w/.gen) end",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2310.NM1.06",
+      "null_percentage": 0,
+      "type": "Blank",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2310.NM1.07",
+      "null_percentage": 0,
+      "type": "Formula",
+      "value": "if field(\"NM1.02\") == \"1\" then upper(/(MD|DO|NP)/.gen) end",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2310.NM1.08",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "XX",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2310.NM1.09",
+      "null_percentage": 0,
+      "type": "NHS Number",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2310.NM1.10",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "72",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2310.N3.01",
+      "null_percentage": 0,
+      "type": "Street Address",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2310.N4.01",
+      "null_percentage": 0,
+      "type": "City",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2310.N4.02",
+      "null_percentage": 0,
+      "type": "State (abbrev)",
+      "onlyUSPlaces": false,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2310.N4.03",
+      "null_percentage": 0,
+      "type": "Postal Code",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2310.PLA.01",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "2",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2310.PLA.02",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "1P",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2310.PLA.03",
+      "null_percentage": 0,
+      "type": "Formula",
+      "value": "concat(Time.now.strftime(\"%Y\"),Time.now.strftime(\"%m\"),\"01\")",
+      "formula": ""
+    },
+    {
+      "name": "ISA.GS.ST.INS.2310.PLA.04",
+      "null_percentage": 0,
+      "type": "Blank",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2310.PLA.05",
+      "null_percentage": 0,
+      "type": "Character Sequence",
+      "format": "AI",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2300",
+      "null_percentage": 0,
+      "type": "JSON Array",
+      "minItems": 1,
+      "maxItems": 6,
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2300.HD.01",
+      "null_percentage": 0,
+      "type": "Row Number",
+      "formula": "if (this == 6) then\n  \"021\"\nelse\n  \"024\"\nend"
+    },
+    {
+      "name": "ISA.GS.ST.INS.2300.HD.02",
+      "null_percentage": 0,
+      "type": "Blank",
+      "formula": null
+    },
+    {
+      "name": "ISA.GS.ST.INS.2300.HD.03",
+      "null_percentage": 0,
+      "type": "Row Number",
+      "formula": "if (this == 1 || this == 6) then\n  /(HMO|DEN)/.gen\nelsif (this == 2) then\n  \"FAC\"\nelsif (this == 3) then\n  \"HLT\"\nelsif (this == 4) then\n  \"POS\"\nelsif (this == 5) then\n  \"UR\"\nend"
+    }
+  ]
+}
