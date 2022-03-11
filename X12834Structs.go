@@ -62,15 +62,15 @@ func (segment GS) String(x12delimiters X12Delimiters, x12options ...map[string]s
 }
 
 type ST struct {
-	De01      string    `json:"01"`
-	De02      string    `json:"02"`
-	De03      string    `json:"03"`
-	Bgn       BGN       `json:"BGN"`
-	Ref       REF       `json:"REF"`
-	Dtp       DTP       `json:"DTP"`
-	Loop1000A Loop1000A `json:"1000A"`
-	Loop1000B Loop1000B `json:"1000B"`
-	Ins       []INS     `json:"INS"`
+	De01      string `json:"01"`
+	De02      string `json:"02"`
+	De03      string `json:"03"`
+	Bgn       BGN    `json:"BGN"`
+	Ref       REF    `json:"REF"`
+	Dtp       DTP    `json:"DTP"`
+	Loop1000A N1     `json:"1000A"`
+	Loop1000B N1     `json:"1000B""`
+	Ins       []INS  `json:"INS"`
 }
 
 func (segment ST) String(x12delimiters X12Delimiters, x12options ...map[string]string) string {
@@ -79,12 +79,19 @@ func (segment ST) String(x12delimiters X12Delimiters, x12options ...map[string]s
 	return GetSegmentAsString(reflect.ValueOf(segment), GetType(segment), delimiters, options)
 }
 
-type Loop1000A struct {
-	N1 N1 `json:"N1"`
-}
+func (segment ST) SegmentCount() int {
+	v := reflect.ValueOf(segment)
 
-type Loop1000B struct {
-	N1 N1 `json:"N1"`
+	segmentCount := 0
+	for i := 0; i < v.NumField(); i++ {
+		value := v.Field(i)
+		fmt.Println(value.Kind())
+		if value.Kind() == reflect.Struct {
+			segmentCount++
+		}
+	}
+
+	return segmentCount
 }
 
 type BGN struct {
@@ -313,6 +320,7 @@ func (segment PLA) String(x12delimiters X12Delimiters, x12options ...map[string]
 }
 
 func GetSegmentAsString(v reflect.Value, segmentName string, delimiters X12Delimiters, options map[string]string) string {
+
 	// TODO - how to handle sub-element?
 	var fieldSlice []string
 
