@@ -10,6 +10,8 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"strconv"
+	"strings"
 )
 
 var (
@@ -135,15 +137,25 @@ func main() {
 			}
 
 			// TODO - I hate this copy/paste of transactionSetSegmentCount++ has to be a better way.
-			//transactionSetSegmentCount++
-			fmt.Printf("SE*%d*%s~\r\n", transactionSetSegmentCount, st.De02)
+			fmt.Printf(
+				"%s%s",
+				strings.Join([]string{"SE", strconv.FormatInt(int64(transactionSetSegmentCount), 10), st.De02},
+					delimiters.Element),
+				delimiters.Segment,
+			)
 		}
 
 		// End of Function Group Header
-		fmt.Printf("GE*%d*%s~\r\n", setHeaderCount, groupControlNumber)
+		fmt.Printf("%s%s", strings.Join(
+			[]string{"GE", strconv.FormatInt(int64(setHeaderCount), 10), groupControlNumber},
+			delimiters.Element,
+		), delimiters.Segment)
 	}
 
-	fmt.Printf("IEA*%d*%s~\r\n", len(x12.ISA.Gs), x12.ISA.De13)
+	fmt.Printf("%s%s", strings.Join(
+		[]string{"IEA", strconv.FormatInt(int64(len(x12.ISA.Gs)), 10), x12.ISA.De13},
+		delimiters.Element,
+	), delimiters.Segment)
 
 }
 
